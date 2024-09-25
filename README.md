@@ -1,90 +1,69 @@
-# Pointer_Operations
-Experiment 10
-# Pointer_Basics
-Experiment 9
-## Contents
-- [Aim](#aim)
-- [Software Used](#software-used)
-- [Theory](#theory)
-  * [Call by reference](#call-by-reference)
-  * [Call by value](#call-by-value)
-- [Algorithms](#algorithms)
-- [Conclusion](#conclusion)
+# Pointer-Operations-CPP
 
-## Aim 
-To study pointer operations
+## Experiment 10
 
-## Software Used 
+## Aim
+To explore pointer operations.
+
+## Software Used
 VS Code
 
 ## Theory
-<br>
-In C++, functions can receive parameters in different ways, influencing how the function manipulates the provided values. Two common methods are Call by Reference and Call by Value:
-<br>
+In C++, functions can accept parameters in different ways, which affects how they manipulate the values. The two common methods are Call by Reference and Call by Value.
 
-### Call by Reference  
+### Call by Reference
+**Definition:** This method passes the address of the actual parameters to the function, allowing it to modify the original values.
 
-**Definition:** Call by Reference means passing the address (reference) of the actual parameters to the function. This allows the function to modify the original values.  
+**Working:** The function uses pointers to the variables, so any changes made within the function directly affect the original variables.
 
-**Working:** The function receives pointers to the variables, and operations performed inside the function affect the original variables directly.
+### Call by Value
+**Definition:** This method passes a copy of the actual parameters to the function. Changes made to these copies do not affect the original variables.
 
-### Call by Value 
+**Working:** The function operates on the copies, leaving the original variables unchanged.
 
-**Definition:** Call by Value means passing a copy of the actual parameters to the function. Changes made to the parameters inside the function do not affect the original variables.
-
-**Working:** The function operates on copies of the values, leaving the original variables unchanged.
-| Features                | Call by Reference                      | Call by Value                        |
-|---------------------------|----------------------------------------|--------------------------------------|
-| **Definition**            | Passes the address (reference) of the actual parameter. | Passes a copy of the actual parameter. |
-| **Function Parameters**   | Function receives pointers or references to the original variables. | Function receives copies of the original values. |
-| **Effect on Original Data**| Modifies the original data.            | Does not modify the original data.  |
-| **Example**        | `void swap(int *x, int *y)`            | `void swap(int x, int y)`            |
-| **Modification of Values**| Changes made in the function affect the original variables. | Changes made in the function do not affect the original variables. |
-| **Memory Usage**          | Uses memory for pointers/references.   | Uses memory for copies of values.    |
-| **Performance**           | More efficient for large data structures due to avoiding copying. | Can be less efficient for large data structures due to copying. |
-| **Use**              | Used when the function needs to modify the input variables. | Used when the function should not alter the input variables. |
-
-<br>  
-
+| Features                | Call by Reference                     | Call by Value                        |
+|-------------------------|---------------------------------------|--------------------------------------|
+| **Definition**          | Passes the address of the parameter. | Passes a copy of the parameter.      |
+| **Function Parameters** | Receives pointers to the original variables. | Receives copies of the original values. |
+| **Effect on Original Data** | Modifies the original data.         | Does not modify the original data.   |
+| **Example**             | `void swap(int *x, int *y)`          | `void swap(int x, int y)`            |
+| **Modification of Values** | Changes affect the original variables. | Changes do not affect the original variables. |
+| **Memory Usage**        | Uses memory for pointers.             | Uses memory for copies of values.    |
+| **Performance**         | More efficient for large structures.  | Can be less efficient due to copying. |
+| **Use**                | When the function needs to modify inputs. | When the function should not alter inputs. |
 
 ## Algorithms
-### Call by value
-
+### Call by Value
 1. **Start**
 2. **Define Function `swap(int x, int y)`**
    - **Input:** Two integers `x` and `y`
    - **Output:** Swapped values of `x` and `y`
-   - **Inside Swap function:**
+   - **Steps:**
      1. Create a temporary variable `temp`
-     2. Assign the value of `x` to `temp`
-     3. Assign the value of `y` to `x`
-     4. Assign the value of `temp` to `y`
-3. **Inside `main` Function**
-   - Define two integers `a` and `b` with 5 and 2
+     2. Assign `x` to `temp`
+     3. Assign `y` to `x`
+     4. Assign `temp` to `y`
+3. **In `main` Function**
+   - Define integers `a` and `b` as 5 and 2
    - Call `swap(a, b)`
-   - Print the value of `a`
-   - Print the value of `b`
+   - Print `a` and `b`
 4. **End**
 
-### Call by reference
-
+### Call by Reference
 1. **Start**
 2. **Define Function `swap(int *x, int *y)`**
-   - **Input:** Pointers to two integers `x` and `y`
-   - **Output:** Swapped values of the integers pointed to by `x` and `y`
+   - **Input:** Pointers to two integers
+   - **Output:** Swapped values at the addresses pointed to by `x` and `y`
    - **Steps:**
-     1. Make a temporary variable `temp`
-     2. Assign the value pointed to by `x` to `temp` (`temp = *x`)
-     3. Assign the value pointed to by `y` to the location pointed to by `x` (`*x = *y`)
-     4. Assign the value of `temp` to the location pointed to by `y` (`*y = temp`)
+     1. Create a temporary variable `temp`
+     2. Set `temp` to the value pointed to by `x`
+     3. Set the value at `x` to the value at `y`
+     4. Set the value at `y` to `temp`
 3. **In `main` Function**
-   1. Define integers `a` and `b` with 5 and 2.
-   2. Call `swap(&a, &b)` function
-   3. Print the value of `a`
-   4. Print the value of `b`
+   - Define integers `a` and `b` as 5 and 2
+   - Call `swap(&a, &b)`
+   - Print `a` and `b`
 4. **End**
 
-
-
 ## Conclusion
-We learnt about the operations on pointers
+We learned about pointer operations and how to use call by reference and call by value in functions.
